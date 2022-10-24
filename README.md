@@ -1,2 +1,15 @@
-first line
-one more line
+# Дипломный практикум в YandexCloud. 
+
+***1. Регистрация доменного имени***
+
+Зарегистрирован домен step4j.ru
+
+
+![reg2](https://user-images.githubusercontent.com/95530808/197489868-4a9804d3-3735-4853-85d5-020c901329ea.PNG)
+
+***2. Создание инфраструктуры***
+
+Описание инфраструктуры как код создано и выложено в git репозиторий
+
+https://github.com/step4j/yc-diplom
+
