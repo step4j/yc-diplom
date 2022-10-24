@@ -126,3 +126,7 @@ when: inventory_hostname in groups["db-master"]
 
 Запущена [роль](/ansible/roles/runner/tasks/main.yml) для установки runner
 
+![gitlabrunner](https://user-images.githubusercontent.com/95530808/197507706-cd433394-20c7-4a22-a0b3-e62492445b51.PNG)
+
+Запущен pipeline CICD , CI CD отработал и заменил index.php
+
