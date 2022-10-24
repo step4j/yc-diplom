@@ -33,7 +33,7 @@ stage
 
 [reverse proxy](/ansible/roles/reverse_proxy/tasks/main.yml)
 
-certbot
+[certbot](/ansible/roles/reverse_proxy/tasks/certbot.yml)
 
 ***5. Настройка кластера MYSQL***
 
