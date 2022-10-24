@@ -49,7 +49,7 @@ when: inventory_hostname in groups["db-master"]
     SHOW SLAVE STATUS\G
     *************************** 1. row ***************************
                 Slave_IO_State: Connecting to source
-                    Master_Host: db-master-01
+                    Master_Host: db01
                     Master_User: replacation
                     Master_Port: 3306
                     Connect_Retry: 60
