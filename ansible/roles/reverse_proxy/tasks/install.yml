@@ -1,0 +1,10 @@
+---
+ - name: Delete nginx proxy
+   apt: 
+    name: nginx
+    state: '{{ item }}'
+    update_cache: yes
+   with_items:
+    - absent
+    - present
+

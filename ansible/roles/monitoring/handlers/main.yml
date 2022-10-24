@@ -1,0 +1,31 @@
+---
+- name: restart node_exporter
+  service:
+    name: node_exporter
+    state: restarted
+
+- name: service reenable
+  command: systemctl reenable prometheus.service
+
+- name: restart prometheus
+  service:
+    name: prometheus
+    state: restarted
+
+- name: reload prometheus
+  service:
+    name: prometheus
+    state: reloaded
+  when: "{{ prometheus_service_reload }}" 
+
+- name: restart alertmanager
+  service:
+    name: alertmanager
+    enables: yes
+    daemon_reload: yes
+    state: restarted
+
+- name: reload alertmanager
+  systemd:
+    state: reloaded
+    name: alertmanager 

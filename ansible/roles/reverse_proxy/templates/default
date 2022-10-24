@@ -1,0 +1,108 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name www.step4j.ru step4j.ru fail_timeout=0;
+    return 301 https://step4j.ru$request_uri; 
+}
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name www.step4j.ru step4j.ru;
+    
+location / {
+    proxy_pass http://app:80;
+    proxy_http_version 1.1;
+    proxy_buffering off;
+    proxy_read_timeout    90;
+    proxy_connect_timeout 90;
+    proxy_redirect        off;
+    proxy_set_header Host $host;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Port 443;
+    proxy_set_header Proxy "";
+}
+}
+server {
+    listen 80;
+    listen [::]:80;
+    server_name www.gitlab.step4j.ru gitlab.step4j.ru;
+    return 301 https://gitlab.step4j.ru$request_uri; 
+}
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name www.gitlab.step4j.ru gitlab.step4j.ru;
+    
+location / {
+    proxy_pass http://gitlab:80;
+    proxy_buffering off;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Port $server_port;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+}
+server {
+    listen 80;
+    listen [::]:80;
+    server_name www.grafana.step4j.ru grafana.step4j.ru;
+    return 301 https://grafana.step4j.ru$request_uri; 
+}
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name www.grafana.step4j.ru grafana.step4j.ru;
+    
+location / {
+    proxy_pass http://monitoring:3000;
+    proxy_buffering off;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Port $server_port;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+}
+server {
+    listen 80;
+    listen [::]:80;
+    server_name www.prometheus.step4j.ru prometheus.step4j.ru;
+    return 301 https://prometheus.msh762.ru$request_uri; 
+}
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name www.prometheus.step4j.ru prometheus.step4j.ru;
+    
+location / {
+    proxy_pass http://monitoring:9090;
+    proxy_buffering off;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Port $server_port;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+}
+server {
+    listen 80;
+    listen [::]:80;
+    server_name www.alertmanager.step4j.ru alertmanager.step4j.ru;
+    return 301 https://alertmanager.step4j.ru$request_uri; 
+}
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name www.alertmanager.step4j.ru alertmanager.step4j.ru;
+    
+location / {
+    proxy_pass http://monitoring:9093;
+    proxy_buffering off;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Port $server_port;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+}
+

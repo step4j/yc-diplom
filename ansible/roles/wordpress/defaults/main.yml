@@ -1,0 +1,7 @@
+php_modules: [ 'bzip2', 'mime-support', 'php-common', 'php-cli', 'php-common', 'php-fpm', 'php-opcache', 'php-readline']
+nginx_user: www-data
+nginx_group: www-data
+http_host: step4j.ru
+nginx: nginx
+wordpress_user: wordpress
+wordpress_group: wordpress

@@ -1,0 +1,13 @@
+---
+- include_tasks: install.yml
+- include_tasks: node_exporter.yml
+- include_tasks: configuration.yml
+- include_tasks: wordpress_install.yml
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+  become: true
+
+- name: debug ansible_hostname
+  debug: var={{ansible_hostname}}

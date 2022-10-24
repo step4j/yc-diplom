@@ -1,0 +1,48 @@
+#Wordpress packer
+
+
+#Gitlab vars
+gitlab_pre_install: ['curl', 'apt-transport-https', 'openssh-server', 'ca-certificates', 'tzdata', 'perl', 'postfix']
+gitlab_packet: "https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/bionic/gitlab-ce_13.2.1-ce.0_amd64.deb/download.deb"
+open_file: "gitlab-ce"
+common_project_dir: "/mnt/project"
+
+#runner
+gitlab_runner_package_name: "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh"
+gitlab_runner_repository_file: "/etc/apt/sources.list.d/runner_gitlab-runner.list"
+gitlab_url: "http://gitlab.step4j.ru"
+token: "wordpress" 
+gitlab_runner_executor: docker
+gitlab_runner_docker_image: "ubuntu:latest"
+
+#MySQL Settings
+mysql_root_password: "wordpress"
+mysql_db: "wordpress"
+mysql_bind_address: "0.0.0.0"
+backupdir: "/tmp"
+mysql_replication_primary: "10.129.0.25"
+mysql_replication_replica: "10.129.0.9"
+mysql_replication_role_primary: false
+mysql_replication_role_replica: false
+lof_file: "default"
+lof_pos: "default"
+mysql_replication_user:
+  name: replacation 
+  password: wordpress
+mysql_user: 
+ name: wordpress
+ password: wordpress
+
+#HTTP Settings
+http_host: "step4j.ru"
+email_host: step4j@gmail.com
+http_conf: "step4j.conf"
+http_port: "80"
+
+node_exporter_version: 1.1.2
+node_exporter_bin_path: /usr/local/bin/node_exporter
+node_exporter_host: "localhost"
+node_exporter_port: 9100
+node_exporter_options: ''
+node_user: "node_exporter"
+node_group: "node_exporter"

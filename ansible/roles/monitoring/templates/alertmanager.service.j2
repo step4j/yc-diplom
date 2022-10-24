@@ -1,0 +1,15 @@
+[Unit]
+Description={{ serviceNamealter }}
+After=network.target
+
+[Service]
+User={{ userId }}
+Group={{ groupId }}
+StartLimitInterval=0
+Type=simple
+ExecStart={{ exec_command_aler }}
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,22 @@
+---
+- name: installing cerbot packet
+  apt:
+    name: ['certbot', 'python3-certbot-nginx']
+    state: present
+    update_cache: yes
+
+
+- name: Dowland and install cert
+  shell: echo 'y' | bash -c
+    'certbot --nginx
+    --noninteractive
+    --agree-tos
+    --redirect
+    --email {{ email_host }}
+    --expand
+    -d  {{ http_host }},www.{{ http_host }}
+    -d gitlab.{{ http_host }}
+    -d grafana.{{ http_host }}
+    -d prometheus.{{ http_host }}
+    -d alertmanager.{{ http_host }}'
+
