@@ -115,7 +115,7 @@ when: inventory_hostname in groups["db-master"]
 
 Запущена [роль](/ansible/roles/wordpress/tasks/main.yml) для установки wordpress 
 
-Скриншоты для проверки
+Скриншот
 
 
 ![wordpress](https://user-images.githubusercontent.com/95530808/197505948-eb71129d-19ec-48da-992f-b70f074c494f.PNG)
