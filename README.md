@@ -55,7 +55,7 @@ when: inventory_hostname in groups["db-master"]
                     Connect_Retry: 60
                 Master_Log_File: binlog.000003
             Read_Master_Log_Pos: 34973
-                Relay_Log_File: db-slave-01-relay-bin.000001
+                Relay_Log_File: db-slave01-relay-bin.000001
                     Relay_Log_Pos: 4
             Relay_Master_Log_File: binlog.000003
                 Slave_IO_Running: Connecting
@@ -83,7 +83,7 @@ when: inventory_hostname in groups["db-master"]
             Seconds_Behind_Master: NULL
     Master_SSL_Verify_Server_Cert: No
                     Last_IO_Errno: 2003
-                    Last_IO_Error: error connecting to master 'replacation@db-master-01:3306' - retry-time: 60 retries: 2 message: Can't connect to MySQL server on 'db-master-01:3306' (111)
+                    Last_IO_Error: error connecting to master 'replacation@db01:3306' - retry-time: 60 retries: 2 message: Can't connect to MySQL server on 'db-master-01:3306' (111)
                 Last_SQL_Errno: 0
                 Last_SQL_Error: 
     Replicate_Ignore_Server_Ids: 
