@@ -22,11 +22,11 @@ default
 stage
 
 ```
-Остальные конфиги по терраформ можно посмотреть в каталоге terraform
+Остальные конфиги по терраформ можно посмотреть в каталоге [terraform](/terraform/)
 
 ***3. Ansible в проекте***
 
-Конфиги для служб и все файлы относящие к ansible можно посмотреть в каталоге ansible
+Конфиги для служб и все файлы относящие к ansible можно посмотреть в каталоге [ansible](/ansible/)
 
 ***4. Установка NGINX и Cerbot***
 Запущена роль для установки NGINX как reverse proxy с поддержкой TLS для обеспечения безопасности. Саму роль можно посмотреть
@@ -41,7 +41,7 @@ stage
 
 when: inventory_hostname in groups["db-master"]
 
-Сама роль
+[Сама роль](/ansible/roles/db-all/tasks/main.yml)
 
 Вывод для проверки на slave
 <details><summary>SHOW SLAVE STATUS\G</summary>
@@ -110,3 +110,19 @@ when: inventory_hostname in groups["db-master"]
                 Network_Namespace: 
     1 row in set, 1 warning (0.01 sec)
 </details>
+
+***6. Установка Wordpress***
+
+Запущена [роль](/ansible/roles/wordpress/tasks/main.yml) для установки wordpress 
+
+Скриншоты для проверки
+
+
+![wordpress](https://user-images.githubusercontent.com/95530808/197505948-eb71129d-19ec-48da-992f-b70f074c494f.PNG)
+
+***7. Установка Gitlab и Gitlab Runner***
+
+Запущена [роль](/ansible/roles/gitlab/tasks/main.yml) для установки gitlab
+
+Запущена [роль](/ansible/roles/runner/tasks/main.yml) для установки runner
+
