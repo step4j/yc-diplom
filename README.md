@@ -128,5 +128,22 @@ when: inventory_hostname in groups["db-master"]
 
 ![gitlabrunner](https://user-images.githubusercontent.com/95530808/197507706-cd433394-20c7-4a22-a0b3-e62492445b51.PNG)
 
-Запущен pipeline CICD , CI CD отработал и заменил index.php
+Запущен [pipeline](./.gitlab-ci.yml) CICD , CI CD отработал и заменил index.php
+
+***8. Установка и настройка мониторинга***
+
+Установка ролей [Prometheus](/ansible/roles/monitoring/tasks/prometheus_i.yml), [Alert Manager](/ansible/roles/monitoring/tasks/alertmanager.yml) и [Grafana](/ansible/roles/monitoring/tasks/grafana.yml)
+
+ Grafana
+
+![grafana2](https://user-images.githubusercontent.com/95530808/197511792-dc0503a2-98a2-4688-9f10-d02582d8fb5d.PNG)
+
+Prometheus
+
+![prometheus](https://user-images.githubusercontent.com/95530808/197512380-b910b9b7-5e63-4bd4-9f0d-57c4a6208634.PNG)
+
+Alertmanager
+
+![alertmanager](https://user-images.githubusercontent.com/95530808/197512627-f9d1fead-00de-4d3a-ba2a-4e8e8f6628e6.PNG)
+
 
